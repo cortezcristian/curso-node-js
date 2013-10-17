@@ -10,3 +10,13 @@ app.get('/', function(req, res){
     res.render('index', { title: 'Listado', obj: pers });
   });
 });
+
+app.get('/new/nombre/:name', function(req, res){
+  var p = new Personas({nombre: req.params.name, cargo: "Alumno"});
+  p.save(function(err, p){
+    if(err){
+      console.log(err);    
+    }    
+    res.render('index', { title: 'Nuevo', obj: p });
+  });
+});
