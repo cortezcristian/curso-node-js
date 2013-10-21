@@ -6,7 +6,7 @@ var app = module.parent.exports.app
  */
 
 app.get('/', function(req, res){
-  Personas.find(function(err, pers) {
+  Personas.buscarAlumnos(function(pers){
     res.render('index', { title: 'Listado', obj: pers });
   });
 });
