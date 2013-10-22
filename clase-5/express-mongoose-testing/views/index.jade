@@ -4,8 +4,16 @@ block content
   h1= title
   //p #{JSON.stringify(obj)}
   table(border=1)
+    tr
+      th N
+      th Nombre
+      th(colspan="2") Opciones
     -obj.forEach(function(v,i){
       tr
-        td=i
+        td=(i+1)
         td=v.nombre
+        td
+          a(href="/edit/"+i) Editar
+        td
+          a(href="/delete/"+v._id) Borrar
     -})

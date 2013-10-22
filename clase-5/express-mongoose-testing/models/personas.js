@@ -12,4 +12,10 @@ personaSchema.static("buscarAlumnos", function(cb){
    });    
 });
 
+personaSchema.static("eliminarAlumno", function(id, cb){
+   this.remove({_id:id, cargo:"Alumno"}, function(err){
+        cb();    
+   });    
+});
+
 module.exports = mongoose.model('Personas', personaSchema);
