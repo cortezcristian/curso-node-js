@@ -18,4 +18,19 @@ personaSchema.static("eliminarAlumno", function(id, cb){
    });    
 });
 
+personaSchema.static("obtenerAlumno", function(id, cb){
+   this.find({_id:id, cargo:"Alumno"}, function(err, r){
+        cb(r);    
+   });    
+});
+
+personaSchema.static("editarAlumno", function(id, name, cb){
+   this.findOne({_id:id, cargo:"Alumno"}, function(err, r){
+        r.nombre = name;
+        r.save(function(err, al){
+            cb(al);    
+        });
+   });    
+});
+
 module.exports = mongoose.model('Personas', personaSchema);

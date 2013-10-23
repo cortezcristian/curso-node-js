@@ -13,7 +13,9 @@ block content
         td=(i+1)
         td=v.nombre
         td
-          a(href="/edit/"+i) Editar
+          a(href="/edit/"+v._id) Editar
         td
           a(href="/delete/"+v._id) Borrar
     -})
+  p
+    a(href="/new") Nuevo
