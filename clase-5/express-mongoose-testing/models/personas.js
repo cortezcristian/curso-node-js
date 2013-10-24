@@ -33,4 +33,10 @@ personaSchema.static("editarAlumno", function(id, name, cb){
    });    
 });
 
+personaSchema.static("buscarPorNombre", function(name, cb){
+   this.find({nombre:name}, function(err, r){
+        cb(r);    
+   });    
+});
+
 module.exports = mongoose.model('Personas', personaSchema);

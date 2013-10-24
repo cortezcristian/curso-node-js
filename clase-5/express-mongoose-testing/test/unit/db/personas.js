@@ -35,8 +35,6 @@ describe('Model Test Personas', function(){
                     throw new Error('El alumno no fue encontrado');
                 }
             });
-            //fixtures.load('../../fixtures/alumnos.js', function(err){
-            //});
         });
 
         it('Editar Datos de Alumno', function(done){
@@ -51,6 +49,18 @@ describe('Model Test Personas', function(){
 
         it('Borrar Alumno', function(done){
               Personas.eliminarAlumno(alumnoId, done);
+        });
+
+        it('Buscar Alumno por Nombre', function(done){
+            fixtures.load('../../fixtures/alumnos.js', function(err){
+              Personas.buscarPorNombre("Juan Pablo", function(pers){
+                if(pers[0].nombre == "Juan Pablo"){
+                    done()    
+                }else{
+                    done((new Error('El alumno no fue encontrado')));
+                }
+              });
+            });
         });
     });
     

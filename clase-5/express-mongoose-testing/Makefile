@@ -10,7 +10,7 @@ test-unit: test-unit-db
 
 # Functional Tests
 test-headless:
-	./node_modules/.bin/mocha ./test/functional/headless/personas.js \
+	./node_modules/.bin/mocha ./test/functional/headless/* \
         --reporter $(REPORTER) 
 
 # Unit Tests
