@@ -2,7 +2,7 @@ var Browser = require("zombie")
     , assert = require("assert")
     , utils = require('../../../utils')
     , fixtures = require('mongoose-fixtures')
-    , browser = new Browser({debug:true})
+    , browser = new Browser({debug:false})
     , domain = "http://localhost:3000"
     , Personas, idAlumnoEditado;
 

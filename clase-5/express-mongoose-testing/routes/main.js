@@ -22,9 +22,7 @@ app.get('/', function(req, res){
 });*/
 
 app.get('/new', function(req, res){
-  Personas.obtenerAlumno(req.params.id, function(pers){
-    res.render('new', { title: 'Nuevo', obj: pers });
-  });
+   res.render('new', { title: 'Nuevo', obj: {} });
 });
 
 app.post('/new', function(req, res){
