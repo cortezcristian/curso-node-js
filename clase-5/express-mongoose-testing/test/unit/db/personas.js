@@ -1,7 +1,7 @@
 var assert = require("assert")
     , utils = require('../../../utils')
     , fixtures = require('mongoose-fixtures')
-    , Personas, idAlumno;
+    , Personas, alumnoId;
 
 /**
 * Database Connection
@@ -23,7 +23,12 @@ describe('Model Test Personas', function(){
             var p = new Personas({nombre: "Jorge", cargo: "Alumno"});
             p.save(function(err, p){
                 alumnoId = p._id; 
-                done();   
+                if(!err){
+                    done();
+                } else {
+                   throw new Error('No se pudo crear');
+                        
+                } 
             });
         });
 
@@ -40,7 +45,7 @@ describe('Model Test Personas', function(){
         it('Editar Datos de Alumno', function(done){
             Personas.editarAlumno(alumnoId, "Ramon", function(pers){
                 if(pers.nombre == "Ramon"){
-                    done()    
+                    done();    
                 }else{
                     throw new Error('El alumno no fue encontrado');
                 }
@@ -55,7 +60,7 @@ describe('Model Test Personas', function(){
             fixtures.load('../../fixtures/alumnos.js', function(err){
               Personas.buscarPorNombre("Juan Pablo", function(pers){
                 if(pers[0].nombre == "Juan Pablo"){
-                    done()    
+                    done();    
                 }else{
                     done((new Error('El alumno no fue encontrado')));
                 }
