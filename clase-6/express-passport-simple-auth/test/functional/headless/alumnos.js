@@ -22,6 +22,22 @@ describe('Headless Testing', function(){
     });
 
     describe('ABM de Alumnos', function(){
+
+        it('Ingresar como administrador', function(done){
+            browser.visit(domain+"/admin", function () {
+                 browser.
+                   fill("email", "admin@admin.com").
+                   fill("password", "123456").
+                   pressButton("#send", function() {
+                       if(browser.location.pathname == "/"){
+                           done()
+                       }else{
+                            throw new Error('El administrador no pudo autenticarse correctamente');
+                       }
+                   });
+            });
+        });
+
         it('Crear un nuevo alumno', function(done){
             browser.visit(domain+"/new", function () {
                  browser.
@@ -86,6 +102,18 @@ describe('Headless Testing', function(){
                }else{
                     throw new Error('El alumno no fue borrado con exito');
                }
+            });
+        });
+
+        it('Cerrar sesion como administrador', function(done){
+            browser.visit(domain+"/", function () {
+                 browser.clickLink("Salir", function() {
+                   if(browser.location.pathname == "/admin"){
+                       done()
+                   }else{
+                        throw new Error('El administrador no pudo salir correctamente');
+                   }
+                });
             });
         });
     });
