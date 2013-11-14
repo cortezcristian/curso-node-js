@@ -5,5 +5,8 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     .menu-top
-      a(href="/logout") Salir
+      -if(typeof user != "undefined"){
+        span Bienvenido #{user.nombre} 
+        a(href="/logout") Salir
+      -}
     block content

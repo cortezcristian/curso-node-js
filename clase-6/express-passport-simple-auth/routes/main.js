@@ -22,12 +22,12 @@ adminAuth = function(req, res, next){
 
 app.get('/', adminAuth, function(req, res){
   Personas.buscarAlumnos(function(pers){
-    res.render('index', { title: 'Listado', obj: pers });
+    res.render('index', { title: 'Listado',user: req.user, obj: pers });
   });
 });
 
 app.get('/new', adminAuth, function(req, res){
-   res.render('new', { title: 'Nuevo', obj: {} });
+   res.render('new', { title: 'Nuevo',user: req.user, obj: {} });
 });
 
 app.post('/new', adminAuth, function(req, res){
@@ -45,7 +45,7 @@ app.get('/delete/:id', adminAuth, function(req, res){
 
 app.get('/edit/:id', adminAuth, function(req, res){
   Personas.obtenerAlumno(req.params.id, function(pers){
-    res.render('edit', { title: 'Editar', obj: pers });
+    res.render('edit', { title: 'Editar',user: req.user, obj: pers });
   });
 });
 
