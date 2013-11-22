@@ -48,13 +48,13 @@ io.sockets.on("connection", function(socket){
 
     socket.on("join", function(name){
         console.log("se deconecto un socket")
-        socket.nick = name;
+        socket.nick = encodeURI(name);
         userList.push(socket.nick);
     })
 
     socket.on("chatsend", function(msg){
-        console.log(msg);
-        io.sockets.emit("chat", socket.nick+": "+msg);
+        console.log(msg, encodeURI(msg));
+        io.sockets.emit("chat", socket.nick+": "+encodeURI(msg));
     })
     
     socket.on("getUserList", function(){
