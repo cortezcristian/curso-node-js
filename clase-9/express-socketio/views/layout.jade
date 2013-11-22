@@ -1,0 +1,35 @@
+doctype 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='http://code.jquery.com/jquery-1.9.1.js')
+    script(src='/socket.io/socket.io.js')
+    script
+      var socket = io.connect(window.location.href);
+
+      var nickname = prompt();
+      socket.emit("join", nickname);
+
+      socket.on('reciveUserList', function (data) {
+        console.log(">>>", data);
+      });
+
+      socket.on('chat', function (data) {
+          console.log(data);
+          $("#mensajes").append("<div>"+data+"</div>");
+      });
+
+      $(document).ready(function(){
+          $('#send').keydown(function(e){
+            var code = e.keyCode || e.which;
+            if(code==13){
+                console.log($(this).val());
+                socket.emit("chatsend", $(this).val());
+                $(this).val("");
+            }
+          });
+      });
+
+  body
+    block content
