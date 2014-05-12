@@ -167,6 +167,7 @@
 
 
 					</section>
+					<!--
 					<section>
 						<h2>node.js</h2>
 						<div class="absolute-element" style="position: absolute; width: 840.8670576735093px; height: 343px; z-index: 4; left: 77px; top: 155px; max-height: none; max-width: none;">
@@ -197,6 +198,7 @@
 						</div>
 
 					</section>
+					-->
 					<section>
 						<h2 style="font-style: normal; font-variant: normal;">instalar Node.JS</h2>
 						<div>
@@ -596,23 +598,23 @@ colors@0.6.2 node_modules/colors
 		<div>¿Dónde se alojan los módulos?</div>
 
 		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
-			$ tree
-			.
-			├── colores.js
-			└── node_modules
-			└── colors
-			├── colors.js
-			├── example.html
-			├── example.js
-			├── MIT-LICENSE.txt
-			├── package.json
-			├── ReadMe.md
-			├── test.js
-			└── themes
-			├── winston-dark.js
-			└── winston-light.js
-
-			3 directories, 10 files
+    $ tree
+    .
+    ├── colores.js
+    └── node_modules
+        └── colors
+            ├── colors.js
+            ├── example.html
+            ├── example.js
+            ├── MIT-LICENSE.txt
+            ├── package.json
+            ├── ReadMe.md
+            ├── test.js
+            └── themes
+                ├── winston-dark.js
+                └── winston-light.js
+    
+    3 directories, 10 files
 
 		</code></pre>
 
@@ -630,9 +632,9 @@ colors@0.6.2 node_modules/colors
 		<div>Usando los módulos instalados</div>
 
 		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
-			$ cat colores.js
-			require('colors');
-			console.log('Hola Mundo'.rainbow);
+$ cat colores.js
+require('colors');
+console.log('Hola Mundo'.rainbow);
 		</code></pre>
 		Lo probamos...<br>
 
@@ -650,11 +652,11 @@ colors@0.6.2 node_modules/colors
 		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
 $ cat package.json 
 {
-	"name": "colores",
-	"version": "0.0.1",
-	"dependencies" : {
-		"colors" : "*"
-	}
+  "name": "colores",
+  "version": "0.0.1",
+  "dependencies" : {
+    "colors" : "*"
+  }
 } 
 </code></pre>
 <br>
@@ -777,7 +779,7 @@ $ npm install
 	<div>
 		<ul>
 
-			<li>Grunt</li>
+			<li>Grunt / Gulp</li>
 			<li>Mocha</li>
 			<li>Test: Zombie.js / Phantom.js / Selenium</li>
 			<li>Docco</li>
@@ -1224,21 +1226,21 @@ at Sun May 11 2014 22:54:10 GMT-0300 (ART) - Waiting...
 		<div>Ejemplo de BDD con mocha</div>
 		<div>
 			<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
-				$ npm install -g mocha
-				$ mkdir test
-				$ $EDITOR test/test.js
-				var assert = require("assert")
-				describe('Array', function(){
-				describe('#indexOf()', function(){
-				it('should return -1 when the value is not present', function(){
-				assert.equal(-1, [1,2,3].indexOf(5));
-				assert.equal(-1, [1,2,3].indexOf(0));
-			})
-		})
-	})
-	$  mocha
-	.
-	✔ 1 test complete (1ms)
+$ npm install -g mocha
+$ cd test
+$ cat test/test.js
+var assert = require("assert")
+describe('Array', function(){
+  describe('#indexOf()', function(){
+    it('should return -1 when the value is not present', function(){
+      assert.equal(-1, [1,2,3].indexOf(5));
+      assert.equal(-1, [1,2,3].indexOf(0));
+    })
+  })
+})
+$  mocha
+  .
+  ✔ 1 test complete (1ms)
 </code></pre>
 
 </div>
