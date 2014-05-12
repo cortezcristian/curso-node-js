@@ -9,9 +9,15 @@ grunt.initConfig({
          'estilos.css': '*.less',
        }
      }
+   },
+   watch: {
+     lessfiles: {
+       files: '*.less',
+       tasks: ['less:process']
+     }
    }
- }); // The end of grunt.initConfig
+ }); // end grunt.initConfig
  
- // Grunt Packages
  grunt.loadNpmTasks('grunt-contrib-less');
+ grunt.loadNpmTasks('grunt-contrib-watch');
 };

@@ -206,10 +206,10 @@
 						</div>
 						<div>
 							<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
-								wget http://nodejs.org/dist/v0.10.18/node-v0.10.18.tar.gz
-								tar xzvf node-latest.tar.gz &amp;&amp; cd node-v*
-								./configure
-								make install
+wget http://nodejs.org/dist/v0.10.18/node-v0.10.18.tar.gz
+tar xzvf node-latest.tar.gz &amp;&amp; cd node-v*
+./configure
+make install
 
 							</code></pre>
 
@@ -217,9 +217,9 @@
 						<div>O usando la PPA
 						</div>
 						<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
-							sudo add-apt-repository ppa:chris-lea/node.js
-							sudo apt-get update
-							sudo apt-get install nodejs
+sudo add-apt-repository ppa:chris-lea/node.js
+sudo apt-get update
+sudo apt-get install nodejs
 
 						</code></pre>
 
@@ -273,19 +273,20 @@
 						<div>Hola Mundo!</div>
 
 						<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
-							var http = require('http');
+var http = require('http');
 
-							http.createServer(function (req, res) {
-							res.writeHead(200, {'Content-Type': 'text/plain'});
-							res.end('Hola Mundo\n');
-						}).listen(8080, '127.0.0.1');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hola Mundo\n');
+}).listen(8080, '127.0.0.1');
 
-						console.log('Server running at http://127.0.0.1:8080/')
+console.log('Server running at http://127.0.0.1:8080/')
 
 					</code></pre>
 					<div>Arrancamos el server:</div>
-					<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">$ node holamundo.js
-						Server running at http://127.0.0.1:8080/
+					<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+$ node holamundo.js
+Server running at http://127.0.0.1:8080/
 					</code></pre>
 					<div>Y listo ya tenemos un servidor HTTP muy básico</div>
 
@@ -647,21 +648,21 @@ colors@0.6.2 node_modules/colors
 		<div>Package.json</div>
 
 		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
-			$ cat package.json 
-			{
-			"name": "colores",
-			"version": "0.0.1",
-			"dependencies" : {
-			"colors" : "*"
-		}
-	} 
+$ cat package.json 
+{
+	"name": "colores",
+	"version": "0.0.1",
+	"dependencies" : {
+		"colors" : "*"
+	}
+} 
 </code></pre>
 <br>
 <div>Instalando dependencias...</div>
 
 <pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
-	$ npm install 
-	#instala automáticamente las dependencias listadas en package.json
+$ npm install 
+#instala automáticamente las dependencias listadas en package.json
 </code></pre>
 <br>
 
@@ -911,7 +912,7 @@ grunt.initConfig({
        }
      }
    }
- }); // The end of grunt.initConfig
+ }); // end grunt.initConfig
  
  grunt.loadNpmTasks('grunt-contrib-less'); // Grunt Package
 };
@@ -957,6 +958,86 @@ $ lessc -x estilos.less estilos.css # comando manual
 
 		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
 $ grunt less:process # grunt task
+		</code></pre>
+
+
+
+	</section>
+	<section>
+		<h2>Automatizando con Grunt</h2>
+		<div>
+			<br>
+		</div>
+		<div>Problema: automatizar el procesamiento de archivos less, 
+		de manera que al modificar un archivo .less el archivo estilos.css se genere automáticamente
+		</div>
+		<br>
+		<div>Paso 1: Agregar una nueva dependencia package.json</div>
+
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+$ cat package.json
+{
+ "name": "pre-procesar-less",
+ "version": "0.0.1",
+ "devDependencies": {
+   "grunt": "~0.4.2",
+   "grunt-contrib-less": "*",
+   "grunt-contrib-watch": "*"
+ }
+}
+		</code></pre>
+
+	</section>
+	<section>
+		<h2>Automatizando con Grunt</h2>
+		
+		<div>Paso 2: Modificamos nuestro Grunfile.js</div>
+
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+$ cat Gruntfile.js 
+module.exports = function(grunt) {
+grunt.initConfig({
+   pkg: grunt.file.readJSON('package.json'),
+   less: {
+     /* [ ... ] idem ejemplo aterior */
+   },
+   watch: {
+     lessfiles: {
+       files: '*.less',
+       tasks: ['less:process']
+     }
+   }
+ }); // end grunt.initConfig
+ grunt.loadNpmTasks('grunt-contrib-less');
+ grunt.loadNpmTasks('grunt-contrib-watch'); // <- nueva dependencia
+};
+		</code></pre>
+
+	</section>
+	<section>
+		<h2>Automatizando con Grunt</h2>
+		<div>
+			<br>
+		</div>
+		<div>¿Cómo usarlo?</div>
+
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+$ npm install # primero instalar las nuevas dependencias
+		</code></pre>
+		<br>
+		<div>Abrimos una nueva terminal y corremos la tarea:</div>
+
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+$ grunt watch:lessfiles
+Running "watch:lessfiles" (watch) task
+Waiting...
+>> File "estilos.less" changed.
+Running "less:process" (less) task
+File estilos.css created: 81 B → 59 B
+
+Done, without errors.
+Completed in 0.505s 
+at Sun May 11 2014 22:54:10 GMT-0300 (ART) - Waiting...
 		</code></pre>
 
 
