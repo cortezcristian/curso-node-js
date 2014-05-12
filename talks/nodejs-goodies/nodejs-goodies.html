@@ -1,0 +1,1511 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Node.JS Goodies</title>
+
+	<meta name="description" content="Curso de Node.JS">
+	<meta name="author" content="Cristian Cortez">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="css/reveal.min.css">
+	<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+	<!-- GA -->
+	<script type="text/javascript"> 
+
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-23058107-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+
+	</script>
+	<!-- GA -->
+
+	<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+	<script>
+		document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+	</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>
+						<img src="./img/nodejs.png" style="width: 686.2190893774685px; height: 234.55643086295743px; max-height: none; max-width: none;">
+						<br>
+					</h1>
+					<h1 class="absolute-element" style="position: absolute; width: 832px; height: 121px; z-index: 4; left: 64px; top: 327px;">Node.JS Goodies</h1>
+				</section>
+
+				<section>
+					<h2>
+						<span>INTRODUCCIÓN a node.js</span>
+						<br>
+					</h2>
+					<div>
+						<span>
+							<br>
+						</span>
+					</div>
+					<div>
+						<span>¿Que es exactamente Node.JS?</span>
+					</div>
+					<div>
+						<span>
+							<br>
+						</span>
+					</div>
+					<div>¿Que es la programación orientada a eventos?</div>
+					<div>
+						<br>
+					</div>
+					<div>
+						<span>¿En que casos conviene usar Node.js?</span>
+					</div>
+					<div>
+						<span>
+							<br>
+						</span>
+					</div>
+					<div>
+						<span>¿Que herramientas basadas en Node.JS pueden ayudar en mis proyectos?</span>
+					</div>
+					<div>
+						<span>
+							<br>
+						</span>
+					</div>
+
+
+
+				</section>
+				<section>
+					<section>
+						<h2>node.js</h2>
+						<div class="absolute-element" style="position: absolute; width: 840.8670576735093px; height: 343px; z-index: 4; left: 77px; top: 155px; max-height: none; max-width: none;">
+							<div style="text-align: left;">
+								<img src="./img/ryandahl.jpg" style="text-align: center; float: left; width: 229.79210870105217px; height: 273.1233599968157px; max-height: none; max-width: none;">
+								<span style="font-size: 31.769304275512695px;">Node.js es un entorno de programación del lado del servidor basado en Javascript, con I/O de datos en una arquitectura orientada a eventos y basado en el motor Javascript V8. Fue creado por Ryan Dahl en 2009 y su evolución está apadrinada por la empresa Joyent.</span>
+								<br>
+							</div>
+							<div>
+								<p>
+									<br>
+								</p>
+								<p>
+									<a href="http://www.youtube.com/watch?v=jo_B4LTHi3I">Introduction to Node.js with Ryan Dahl</a>
+									<br>
+								</p>
+							</div>
+						</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+					</section>
+					<section>
+						<h2>V8 JavaScript Engine<br>
+						</h2>
+						<div class="absolute-element" style="position: absolute; width: 840.8670576735093px; height: 343px; z-index: 4; left: 77px; top: 155px; max-height: none; max-width: none;">
+							<p>
+								<img src="./img/v8.png" style="float: left; width: 273.1811027789679px; height: 273.1811027789679px; max-height: none; max-width: none;">
+							</p>
+							<div style="text-align: left;">
+								<span style="font-size: 31.496061325073242px;">Es un motor de Javascript open source desarrollado por Google, esta disponible desde el 2008 y actualmente es usado en el navegador Google Chrome.&nbsp;</span>
+							</div>
+							<div style="text-align: left;">&nbsp;<br>
+							</div>
+							<div>
+								<p>
+									<br>
+								</p>
+								<p>
+									<br>
+								</p>
+								<p>
+									<br>
+								</p>
+								<p>
+									<a href="http://code.google.com/p/v8/">
+										Proyecto en Google Code
+
+									</a>
+								</p>
+							</div>
+						</div>
+
+
+					</section>
+					<section>
+						<h2>node.js</h2>
+						<div class="absolute-element" style="position: absolute; width: 840.8670576735093px; height: 343px; z-index: 4; left: 77px; top: 155px; max-height: none; max-width: none;">
+
+							<div style="text-align: left;">
+								<img src="./img/ryandahl.jpg" style="text-align: center; float: left; width: 229.79210870105217px; height: 273.1233599968157px; max-height: none; max-width: none;">
+								<span style="font-size: 31.496061325073242px;">El objetivo que&nbsp;perseguía&nbsp;Ryan Dhal era crear sitios webs que tuvieran la capacidad de empujar eventos en forma&nbsp;dinámica&nbsp;de la misma manera que hoy en&nbsp;día&nbsp;lo hacen aplicaciones muy conocidas como GMail.</span>
+							</div>
+							<div style="text-align: left;">
+								<span style="font-size: 31.496061325073242px;">
+									<br>
+								</span>
+							</div>
+							<div style="text-align: left;">
+								<span style="font-size: 31.496061325073242px;">
+									<br>
+								</span>
+							</div>
+							<div>
+								<p>
+									<br>
+								</p>
+								<p>
+									<a href="http://www.youtube.com/watch?v=SAc0vQCC6UQ">Ryan Dahl - History of Node.js</a>
+									<br>
+								</p>
+							</div>
+						</div>
+
+					</section>
+					<section>
+						<h2 style="font-style: normal; font-variant: normal;">instalar Node.JS</h2>
+						<div>
+							<br>
+						</div>
+						<div>GNU/Linux
+						</div>
+						<div>
+							<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+								wget http://nodejs.org/dist/v0.10.18/node-v0.10.18.tar.gz
+								tar xzvf node-latest.tar.gz &amp;&amp; cd node-v*
+								./configure
+								make install
+
+							</code></pre>
+
+						</div>
+						<div>O usando la PPA
+						</div>
+						<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+							sudo add-apt-repository ppa:chris-lea/node.js
+							sudo apt-get update
+							sudo apt-get install nodejs
+
+						</code></pre>
+
+
+
+
+
+
+
+
+					</section>
+					<section>
+						<h2 style="font-style: normal; font-variant: normal;">instalar Node.JS</h2>
+						<div>
+							<br>
+						</div>
+						<div>Mac
+						</div>
+						<div>
+							<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+								brew install node
+
+							</code></pre>
+
+						</div>
+						<div>
+							<br>
+						</div>
+						<div>Windows
+						</div>
+						<div>
+							<br>
+						</div>
+						<div>
+							<a href="http://nodejs.org/download/">Descargar Windows Installer</a>
+						</div>
+
+
+
+
+
+
+
+
+
+
+
+					</section>
+					<section>
+						<h2>node.js</h2>
+						<div>Hola Mundo!</div>
+
+						<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+							var http = require('http');
+
+							http.createServer(function (req, res) {
+							res.writeHead(200, {'Content-Type': 'text/plain'});
+							res.end('Hola Mundo\n');
+						}).listen(8080, '127.0.0.1');
+
+						console.log('Server running at http://127.0.0.1:8080/')
+
+					</code></pre>
+					<div>Arrancamos el server:</div>
+					<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">$ node holamundo.js
+						Server running at http://127.0.0.1:8080/
+					</code></pre>
+					<div>Y listo ya tenemos un servidor HTTP muy básico</div>
+
+
+				</section>
+				<section>
+					<h2>Node.js</h2>
+					<div>Echo TCP Server</div>
+
+					<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+						var net = require('net');
+
+						var server = net.createServer(function (socket) {
+						socket.write('Echo server\r\n');
+						socket.pipe(socket);
+					});
+
+					server.listen(1337, '127.0.0.1');
+				</code></pre>
+				<div>Probamos el echo server:</div>
+				<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+					$ nc localhost 1337
+					Echo server
+					ecoooo
+					ecoooo
+				</code></pre>
+				<br>
+			</section>
+			<section>
+				<h2>NODE.JS</h2>
+				<div>Telenet Chat Server</div>
+				<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+					var net = require('net');
+					var sockets = [];
+
+					var server = net.createServer(function (socket) {
+					sockets.push(socket);
+					socket.write('Bienvenido al Chat ;)\r\n');
+
+					socket.on("data", function(d){
+					sockets.forEach(function(v,i){
+					v.write(d);    
+				});    
+			});
+
+			socket.on("end", function(){
+			var index = sockets.indexof(socket);
+			delete sockets[index];
+		});
+	}); 
+
+	server.listen(1337, '127.0.0.1');
+</code></pre>
+<br>
+
+
+
+</section>
+<section>
+	<h2>Node.JS CheatSHEETs</h2>
+	<div>
+		<img src="./img/js.png">
+		<br>
+	</div>
+	<div>
+		<ol>
+			<li>
+				<font style="font-size: 32px;">
+					<a href="http://overapi.com/nodejs/">http://overapi.com/nodejs/</a>
+					<br>
+				</font>
+			</li>
+			<li>
+				<font style="font-size: 32px;">
+					<a href="https://www.gosquared.com/resources/node-cheat-sheet">https://www.gosquared.com/resources/node-cheat-sheet</a>
+					<br>
+				</font>
+			</li>
+			<li>
+				<a href="http://refcardz.dzone.com/refcardz/nodejs-building-scalability">
+					<font style="font-size: 32px;">http://refcardz.dzone.com/refcardz/nodejs-building-scalability</font>
+				</a>
+				<br>
+			</li>
+		</ol>
+	</div>
+
+
+</section>
+<section>
+	<h2>Node.JS TUTORIALES</h2>
+	<div>
+		<img src="./img/js.png">
+		<br>
+	</div>
+	<div>
+		<ol>
+			<li>
+				<font style="font-size: 32px;">
+					<a href="http://node.codeschool.com/levels/1">Real-Time Web with Node.js</a>
+					<br>
+				</font>
+			</li>
+			<li>
+				<font style="font-size: 32px;">
+					<a href="http://nodecasts.net/">NodeCasts</a>
+					<br>
+				</font>
+			</li>
+			<li>
+				<a href="http://nodetuts.com/">
+					<font style="font-size: 32px;">NodeTuts</font>
+				</a>
+				<br>
+			</li>
+			<li>
+				<a href="http://stackoverflow.com/questions/2353818/how-do-i-get-started-with-node-js">
+					<font style="font-size: 32px;">How do I get started with Node.js?</font>
+				</a>
+				<br>
+			</li>
+		</ol>
+
+	</div>
+
+
+
+
+</section>
+<section>
+	<h2>node.js bibliografia</h2>
+	<div>
+		<img src="./img/js.png">
+		<br>
+	</div>
+	<div>
+		<ol>
+			<li>
+				<font style="font-size: 32px;">
+					<a href="http://www.amazon.es/Node-Running-Scalable-Server-side-JavaScript/dp/1449398588">Node: Up and Running</a>
+					<br>
+				</font>
+			</li>
+			<li>
+				<font style="font-size: 32px;">
+					<a href="http://www.amazon.es/Smashing-Node-Js-JavaScript-Everywhere-Magazine/dp/1119962595">Smashing Node.Js: JavaScript Everywhere</a>
+					<br>
+				</font>
+			</li>
+			<li>
+				<a href="http://www.nodebeginner.org/">
+					<font style="font-size: 32px;">Node Beginner</font>
+				</a>
+				<br>
+			</li>
+			<li>
+				<a href="http://www.amazon.es/Professional-Node-Js-Building-Javascript-Scalable/dp/1118185463/ref=pd_sim_sbs_fb_1">
+					<font style="font-size: 32px;">Professional Node.Js</font>&nbsp;</a>
+					<br>
+				</li>
+				<li>
+					<a href="http://nodejsbook.io/">
+						<font style="font-size: 32px;">Sam's Teach Yourself Node.js in 24 Hours</font>
+					</a>
+					<br>
+				</li>
+			</ol>
+
+		</div>
+
+
+
+
+
+
+
+	</section>
+
+</section>
+<!-- NPM Starts -->
+<section>
+	<h2>
+		<span>INTRODUCCIÓN a nPM</span>&nbsp;<br>
+	</h2>
+	<div>
+		<span>
+			<br>
+		</span>
+	</div>
+	<div>
+		<span>¿Que es un administrador de paquetes?</span>
+	</div>
+	<div>
+		<span>
+			<br>
+		</span>
+	</div>
+	<div>¿Como instalar paquetes node?</div>
+	<div>
+		<br>
+	</div>
+	<div>
+		<span>¿De dónde vienen los paquetes?</span>
+	</div>
+	<div>
+		<span>
+			<br>
+		</span>
+	</div>
+	<div>
+		<span>¿Cómo contribuir un nuevo paquete?</span>
+	</div>
+	<div>
+		<span>
+			<br>
+		</span>
+	</div>
+
+
+
+
+</section>
+<section>
+	<section>
+		<h2>NPM
+		</h2>
+		<div class="absolute-element" style="position: absolute; width: 840.8670576735093px; height: 343px; z-index: 4; left: 77px; top: 155px; max-height: none; max-width: none;">
+			<div style="text-align: left;">
+				<img src="./img/isaac.jpg" style="text-align: center; float: left; width: 229.79210870105217px; height: 273.1233599968157px; max-height: none; max-width: none;">
+				<span style="font-size: 31.769304275512695px;">NPM es el gestor de paquetes oficial de Node.JS. Fue creado por&nbsp;</span>
+				<span style="font-size: 31.496061325073242px;">Isaac Schlueter</span>
+				<span style="font-size: 31.769304275512695px;">&nbsp;y viene incluido junto con Node.JS desde la version&nbsp;</span>
+				<span style="text-align: center; font-size: 31.496061325073242px;">0.6.3 liberada en el 2011</span>
+				<span style="font-size: 31.769304275512695px;">. Actualmente, Isaac continua trabajando en Joyent y es el encargado de mantener el proyecto Node.JS.</span>
+				<span>
+				</span>
+			</div>
+			<div>
+				<p>
+					<br>
+				</p>
+				<p>
+					<a href="https://npmjs.org/">https://npmjs.org/</a>
+					<br>
+				</p>
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</section>
+	<section>
+		<img src="./img/coronation.png" style="width: 490.42812779662717px; height: 487.7585306004902px; max-height: none; max-width: none;">
+		<div>
+			<a href="http://siliconangle.com/blog/2012/01/30/node-js-creator-ryan-dahl-cedes-role-as-gatekeeper-to-npm-creator-isaac-schlueter/">Node.js Creator Ryan Dahl Cedes Role as Gatekeeper to NPM Creator Isaac Schlueter</a>
+		</div>
+
+
+	</section>
+	<section>
+		<h2>NPM</h2>
+		<div>
+			<br>
+		</div>
+		<div>Obteniendo la version actual</div>
+
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+			$ npm --version
+			1.1.69
+		</code></pre>
+		<br>
+		<div>Instalando módulos</div>
+
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+			$ npm install colors
+			npm http GET https://registry.npmjs.org/colors
+			npm http 200 https://registry.npmjs.org/colors
+			npm http GET https://registry.npmjs.org/colors/-/colors-0.6.2.tgz
+			npm http 200 https://registry.npmjs.org/colors/-/colors-0.6.2.tgz
+			colors@0.6.2 node_modules/colors
+		</code></pre>
+		<br>
+
+
+
+	</section>
+	<section>
+		<h2>NPM</h2>
+		<div>
+			<br>
+		</div>
+		<div>¿Dónde se alojan los módulos?</div>
+
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+			$ tree
+			.
+			├── colores.js
+			└── node_modules
+			└── colors
+			├── colors.js
+			├── example.html
+			├── example.js
+			├── MIT-LICENSE.txt
+			├── package.json
+			├── ReadMe.md
+			├── test.js
+			└── themes
+			├── winston-dark.js
+			└── winston-light.js
+
+			3 directories, 10 files
+
+		</code></pre>
+
+
+
+
+
+	</section>
+	<section>
+		<h2>NPM</h2>
+		<div>
+			<br>
+		</div>
+
+		<div>Usando los módulos instalados</div>
+
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+			$ cat colores.js
+			require('colors');
+			console.log('Hola Mundo'.rainbow);
+		</code></pre>
+		Lo probamos...<br>
+
+
+
+		<div>
+			<img src="./img/colores.png">
+			<br>
+		</div>
+	</section>
+	<section>
+		<h2>NPM</h2>
+		<div>Package.json</div>
+
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+			$ cat package.json 
+			{
+			"name": "colores",
+			"version": "0.0.1",
+			"dependencies" : {
+			"colors" : "*"
+		}
+	} 
+</code></pre>
+<br>
+<div>Instalando dependencias...</div>
+
+<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+	$ npm install 
+	#instala automáticamente las dependencias listadas en package.json
+</code></pre>
+<br>
+
+
+
+
+
+
+
+</section>
+<section>
+	<h2>NPM</h2>
+	<div>
+		<img src="./img/npm.png" style="height: 170.6953923752937px; max-height: none; max-width: none; width: 437.28346498369234px;">
+		<br>
+	</div>
+	<div>Opciones disponibles para package.json</div>
+	<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+		$ npm help json
+	</code></pre>
+	<div>
+		<a href="http://package.json.nodejitsu.com/">Guía Intereactiva package.json</a>
+	</div>
+
+
+
+</section>
+<section>
+	<h2>NPM</h2>
+	<div>Instalando paquetes binarios</div>
+
+	<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+		$ npm install -g express
+	</code></pre>
+	<br>
+	<div>Buscando módulos</div>
+
+	<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+		$ npm search colors
+	</code></pre>
+	<br>
+	<div>Explorando detalles de un módulo particular</div>
+
+	<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+		$ npm view colors
+	</code></pre>
+	<br>
+</section>
+<section>
+	<h2>NPM</h2>
+	<div>
+		<img src="./img/npm.png" style="height: 170.6953923752937px; max-height: none; max-width: none; width: 437.28346498369234px;">
+		<br>
+	</div>
+	<div>Publicando mi propio modulo</div>
+	<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+		$ npm publish
+	</code></pre>
+	<div>
+		<a href="http://www.mattpalmerlee.com/2013/04/23/create-your-first-node-module-and-publish-it-to-the-npm-registry/">Guía para publicar modulos</a>
+	</div>
+
+
+
+</section>
+<section>
+	<h2>NPM Cheat sheets</h2>
+	<div>
+		<img src="./img/npm.png" style="height: 170.6953923752937px; max-height: none; max-width: none; width: 437.28346498369234px;">
+		<br>
+	</div>
+	<div>
+		<br>
+	</div>
+	<div>
+		<ol>
+			<li>
+				<font style="font-size: 32px;">
+					<a href="https://gist.github.com/AvnerCohen/4051934">NPM Cheat Sheet</a>
+					<br>
+				</font>
+			</li>
+			<li>
+				<font style="font-size: 32px;">
+					<a href="http://blog.nodejitsu.com/npm-cheatsheet">http://blog.nodejitsu.com/npm-cheatsheet</a>
+					<br>
+				</font>
+			</li>
+		</ol>
+	</div>
+
+
+
+
+
+
+
+
+
+</section>
+</section>
+<!-- NPM Ends -->
+<!-- TDD Stars -->
+<section>
+	<h2>Node.JS Goodies</h2>
+	<div>
+		<br>
+	</div>
+	<div>
+		<br>
+	</div>
+	<div>
+		<ul>
+
+			<li>Grunt</li>
+			<li>Mocha</li>
+			<li>Test: Zombie.js / Phantom.js / Selenium</li>
+			<li>Docco</li>
+
+		</ul>
+
+	</div>
+</section>
+<section>
+	<section>
+		<h2>Grunt</h2>
+
+		<div class="absolute-element" style="position: absolute; width: 840.8670576735093px; height: 343px; z-index: 4; left: 77px; top: 105px; max-height: none; max-width: none;">
+			<p style="text-align: center;">
+				<img src="./img/grunt.png" style="height: 200px;" >
+				<br>
+			</p>
+			<div style="text-align: left;">
+				<span>
+				</span>
+			</div>
+			<div style="text-align: left;">
+				<span style="font-size: 31.769304275512695px;">
+					Grunt es un Framework que nos ayuda a automatizar tareas comunes, tales como minificar javascript, preprocesar templates, unir archivos, y mucho mas...
+				</span>
+			</div>
+			<div>
+				<p>
+					<br>
+				</p>
+				<p>
+					<a href="http://gruntjs.com/getting-started">
+						Grunt.js docs
+					</a>
+				</p>
+			</div>
+		</div>
+
+	</section>
+</section>
+<section>
+	<!--
+	<section>
+		<h2>TDD</h2>
+
+		<div class="absolute-element" style="position: absolute; width: 840.8670576735093px; height: 343px; z-index: 4; left: 77px; top: 155px; max-height: none; max-width: none;">
+			<p style="text-align: center;">
+				<br>
+			</p>
+			<div style="text-align: left;">
+				<span>
+				</span>
+			</div>
+			<div style="text-align: left;">
+				<span style="font-size: 31.769304275512695px;">Desarrollo guiado por pruebas de software, o Test-driven development (TDD) es una práctica de programación que involucra otras dos prácticas: Escribir las pruebas primero (Test First Development) y Refactorización (Refactoring).</span>
+			</div>
+			<div style="text-align: left;">
+				<span style="font-size: 31.769304275512695px;">
+					<br>
+				</span>
+			</div>
+			<div style="text-align: left;">
+				<br>
+			</div>
+			<div style="text-align: left;">
+				<span style="font-size: 31.769304275512695px;">
+					<br>
+				</span>
+			</div>
+			<div>
+				<p>
+					<a href="http://en.wikipedia.org/wiki/Test-driven_development">
+						TDD
+
+					</a>
+				</p>
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</section>
+	<section>
+		<h2>BDD</h2>
+
+		<div class="absolute-element" style="position: absolute; width: 840.8670576735093px; height: 343px; z-index: 4; left: 77px; top: 155px; max-height: none; max-width: none;">
+			<p style="text-align: center;">
+				<br>
+			</p>
+			<div style="text-align: left;">
+				<span>
+				</span>
+			</div>
+			<div style="text-align: left;">
+				<span style="font-size: 31.769304275512695px;">
+					BDD es una técnica de desarrollo ágil, la cual nació como una solución a los diversos problemas que presenta el Test-driven development. 
+					El BDD se basa en escribir los specs antes que el propio código. 
+					Un spec es un código que prueba que el objetivo funciona como debería de hacerlo.
+				</span>
+			</div>
+			<div style="text-align: left;">
+				<span style="font-size: 31.769304275512695px;">
+					<br>
+				</span>
+			</div>
+			<div style="text-align: left;">
+				<br>
+			</div>
+			<div style="text-align: left;">
+				<span style="font-size: 31.769304275512695px;">
+					<br>
+				</span>
+			</div>
+			<div>
+				<p>
+					<a href="http://en.wikipedia.org/wiki/Behavior-driven_development">
+						BDD
+
+					</a>
+				</p>
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</section>
+	-->
+	<section>
+		<h2>Mocha</h2>
+
+		<div class="absolute-element" style="position: absolute; width: 840.8670576735093px; height: 343px; z-index: 4; left: 77px; top: 155px; max-height: none; max-width: none;">
+			<p style="text-align: center;">
+				<img src="./img/2013-10-21_093855.png">
+				<br>
+			</p>
+			<div style="text-align: left;">
+				<span>
+				</span>
+			</div>
+			<div style="text-align: left;">
+				<span style="font-size: 31.769304275512695px;">
+					Mocha es un Framework de testing, que nos ayuda a escribir casos de pruebas, organizar su ejecución y producir reportes en base a los resultados obtenidos.
+				</span>
+			</div>
+			<div>
+				<p>
+					<br>
+				</p>
+				<p>
+					<a href="http://visionmedia.github.io/mocha/">
+						Mocha Docs
+
+					</a>
+				</p>
+			</div>
+		</div>
+
+
+
+	</section>
+	<section>
+		<h2>Mocha</h2>
+		<div>
+			<br>
+		</div>
+		<div>Ejemplo de BDD con mocha</div>
+		<div>
+			<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+				$ npm install -g mocha
+				$ mkdir test
+				$ $EDITOR test/test.js
+				var assert = require("assert")
+				describe('Array', function(){
+				describe('#indexOf()', function(){
+				it('should return -1 when the value is not present', function(){
+				assert.equal(-1, [1,2,3].indexOf(5));
+				assert.equal(-1, [1,2,3].indexOf(0));
+			})
+		})
+	})
+	$  mocha
+	.
+	✔ 1 test complete (1ms)
+</code></pre>
+
+</div>
+
+
+</section>
+<section>
+	<h2>Fixtures</h2>
+
+	<div class="absolute-element" style="position: absolute; width: 840.8670576735093px; height: 343px; z-index: 4; left: 77px; top: 155px; max-height: none; max-width: none;">
+		<p style="text-align: center;">
+			<br>
+		</p>
+		<div style="text-align: left;">
+			<span>
+			</span>
+		</div>
+		<div style="text-align: left;">
+			<span style="font-size: 31.496061325073242px;">
+				Los fixtures son colecciones de datos fijos que se guardan&nbsp;</span>
+				<span style="font-size: 31.769304275512695px;">generalmente</span>
+				<span style="font-size: 31.496061325073242px;">&nbsp;dentro de arrays en el lenguaje utilizado, y se sincronizan contra la base de datos.
+					Son especialmente útiles durante la ejecución de los casos de prueba, que requieran registros pre-existentes para poder realizar operaciones sobre los mismos.
+				</span>
+				<br>
+			</div>
+			<div style="text-align: left;">
+				<span style="font-size: 31.769304275512695px;">
+					<br>
+				</span>
+			</div>
+			<div style="text-align: left;">
+				<br>
+			</div>
+			<div style="text-align: left;">
+				<span style="font-size: 31.769304275512695px;">
+					<br>
+				</span>
+			</div>
+			<div>
+				<p>
+					<a href="https://github.com/powmedia/mongoose-fixtures">
+						Mongoose Fixtures
+
+					</a>
+				</p>
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</section>
+	<section>
+		<h2>Fixtures</h2>
+		<div>
+			<br>
+		</div>
+		<div>Ejemplo con mongoose fixtures</div>
+		<div>
+			<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+				var fixtures = require('mongoose-fixtures');
+
+				//Objects
+				fixtures.load({
+				User: [
+				{ name: 'Maeby' },
+				{ name: 'George Michael' }
+				]
+			});
+
+			//Files
+			fixtures.load(__dirname + '/fixtures/users.js');
+
+			//Directories (loads all files in the directory)
+			fixtures.load(__dirname + '/fixtures');
+		</code></pre>
+
+		<div>
+			<font style="font-size: 18px;">Importante: Al llamar al metodo load() primero se vacia la colleccion, y luego se cargan los fixtures</font>
+		</div>
+	</div>
+
+</section>
+<section>
+	<h2>Zombie.JS</h2>
+
+	<div class="absolute-element" style="position: absolute; width: 840.8670576735093px; height: 343px; z-index: 4; left: 77px; top: 155px; max-height: none; max-width: none;">
+		<p style="text-align: center;">
+			<img src="./img/zombiejs.png" style="width: 291.75464352228306px; height: 89.54558396231869px; max-height: none; max-width: none;">&nbsp;<br>
+		</p>
+		<div style="text-align: left;">
+			<span>
+			</span>
+		</div>
+		<div style="text-align: left;">
+			<span style="font-size: 31.769304275512695px;">
+				Es un framework que nos permite hacer headless testing. Significa que nos permite automatizar las operaciones en un navegador que no tiene interfaz gráfica (GUI).
+			</span>
+		</div>
+		<div>
+			<p>
+				<br>
+			</p>
+			<p>
+				<a href="http://zombie.labnotes.org/">
+					Zombie.js Docs
+
+				</a>
+			</p>
+		</div>
+	</div>
+
+
+</section>
+<section>
+	<h2>Headless Test</h2>
+	<div>
+		<br>
+	</div>
+	<div>Ejemplo de headless testing automation con zombie.js</div>
+	<div>
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+			var Browser = require("zombie"), assert = require("assert");
+			browser = new Browser();
+			browser.visit("http://localhost:3000/", function () {
+			// Fill email, password and submit form
+			browser.
+			fill("email", "zombie@underworld.dead").
+			fill("password", "eat-the-living").
+			pressButton("Sign Me Up!", function() {
+			// Form submitted, new page loaded.
+			assert.ok(browser.success);
+			assert.equal(browser.text("title"),"Welcome To Brains Depot");
+		})
+	});
+</code></pre>
+
+</div>
+
+
+</section>
+<section>
+	<h2>Testing Plan</h2>
+
+	<div class="absolute-element" style="position: absolute; width: 840.8670576735093px; height: 343px; z-index: 4; left: 77px; top: 155px; max-height: none; max-width: none;">
+		<p style="text-align: center;">
+			<img src="./img/testplan.png" style="width: 430.09481947536227px; height: 343.28352341486595px; max-height: none; max-width: none;">&nbsp;<br>
+		</p>
+		<div style="text-align: left;">
+			<span>
+			</span>
+		</div>
+
+		<div>
+			<p>
+			</p>
+			<p>
+				Elaboramos un plan que incluya DB Unit Tests, Headless Testing y Fixtures
+			</p>
+		</div>
+	</div>
+
+
+</section>
+<section>
+	<h2>Testing Plan</h2>
+	<div>
+		<br>
+	</div>
+	<div>Instalando las dependencias para desarrollo</div>
+	<div>
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+			$ git clone git@github.com:cortezcristian/curso-node-js.git
+			$ cd curso-node-js
+			$ git checkout 1ab3b6c0804251f76fceee0d3efdbc15b63b0415
+			$ cd clase-5/express-mongoose-testing/
+			$ npm install --save-dev
+		</code></pre>
+	</div>
+	<div>
+		<font style="font-size: 18px;">Este último comando instala las dependencias listadas dentro de "devDependencies" en el package JSON</font>
+	</div>
+	<div>
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+			"devDependencies": {
+			"mocha": "~1.13.0",
+			"zombie": "~2.0.0-alpha24",
+			"mongoose-fixtures": "0.0.1"
+		}
+	</code></pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+<section>
+	<h2>Testeando el Modelo</h2>
+	<div>
+		<br>
+	</div>
+	<div>Testeamos el modelo personas.js</div>
+	<div>
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+			describe('Model Test Personas', function(){
+			before(function(){
+			//Before all tests
+			Personas = require("../../../models/personas.js");
+		});
+
+		describe('Operaciones con Alumnos', function(){
+		it('Crear un nuevo alumno en la BD', function(done){
+		var p = new Personas({nombre: "Jorge", cargo: "Alumno"});
+		p.save(done);
+	});
+});
+});
+</code></pre>
+
+
+</div>
+
+
+</section>
+<section>
+	<h2>Testeando el Modelo</h2>
+	<div>
+		<br>
+	</div>
+	<div>Creando un fixture para testear el método estático buscarPorNombre()</div>
+	<div>
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+			module.exports.Personas = [{
+			nombre : "Jose",
+			cargo  : "Alumno"
+		},{ 
+		nombre : "Jorge",
+		cargo  : "Alumno"
+	},{ 
+	nombre : "Juan Pablo",
+	cargo  : "Alumno"
+}];
+
+//Contenido de test/fixtures/alumnos.js
+</code></pre>
+
+
+</div>
+</section>
+<section>
+	<h2>Testeando el Modelo</h2>
+	<div>Testeamos el método Personas.buscarPorNombre() </div>
+	<div>
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+			describe('Model Test Personas', function(){
+			// ...
+			describe('Operaciones con Alumnos', function(){
+			it('Buscar Alumno por Nombre', function(done){
+			fixtures.load('../../fixtures/alumnos.js',function(err){
+			Personas.buscarPorNombre("Juan Pablo", function(pers){
+			if(pers[0].nombre == "Juan Pablo"){
+			done()    
+		}else{
+		done((new Error('El alumno no fue encontrado')));
+	}
+});
+});
+});
+});
+});
+</code></pre>
+
+
+</div>
+
+
+
+
+
+</section>
+<section>
+	<h2>Testeando el Modelo</h2>
+	<div>Corremos los tests </div>
+	<div>
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+			$ mocha ./test/unit/db/* --reporter spec
+			Model Test Personas
+			Operaciones con Alumnos
+			✓ Crear un nuevo alumno en la BD 
+			✓ Obtener Datos de Alumno 
+			✓ Editar Datos de Alumno 
+			✓ Borrar Alumno 
+			✓ Buscar Alumno por Nombre 
+
+			5 tests complete (26 ms)
+		</code></pre>
+
+
+	</div>
+
+
+
+
+
+</section>
+<section>
+	<h2>Testeando la Aplicación</h2>
+	<div>Testeamos el formulario de alta de alumnos</div>
+	<div>
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+			describe('Headless Testing', function(){
+			describe('ABM de Alumnos', function(){
+			it('Crear un nuevo alumno', function(done){
+			browser.visit(domain+"/new", function () {
+			browser.
+			fill("nombre", "Ariel").
+			pressButton("Guardar", function() {
+			if(browser.location.pathname == "/"){
+			done()
+		}else{
+		throw new Error('Fallo el alta de alumno');
+	}
+});
+});
+});
+});
+});
+</code></pre>
+
+
+</div>
+</section>
+<section>
+	<h2>Testeando la Aplicación</h2>
+	<div>Corremos los tests</div>
+	<div>
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+			$ mocha ./test/functional/headless/* --reporter spec
+			Headless Testing
+			ABM de Alumnos
+			✓ Crear un nuevo alumno (155ms)
+			✓ Listar Alumnos (65ms)
+			✓ Editar Datos de Alumno (198ms)
+			✓ Borrar Alumno (63ms)
+
+			4 tests complete (485 ms)
+		</code></pre>
+
+
+	</div>
+</section>
+<section>
+	<h2>Testing Suite</h2>
+
+	<div class="absolute-element" style="position: absolute; width:840px; height: 343px; z-index: 4; left: 77px; top: 125px; max-height: none; max-width: none;">
+		<p style="text-align: center;">
+			<img src="./img/nyan-reporter.png" style="width: 422.5591401009732px; height: 330.8845970833586px; max-height: none; max-width: none;">&nbsp;<br>
+		</p>
+		<div style="text-align: left;">
+			<span>
+			</span>
+		</div>
+
+		<div>
+			<p>
+			</p>
+			<p>
+				Ejecutamos nuestra suite de testing
+			</p>
+		</div>
+	</div>
+
+</section>
+
+</section>
+
+<!-- TDD Ends -->
+<section>
+	<section>
+		<h2>preguntas?</h2>
+		<div>
+			<br>
+		</div>
+		<div>
+			<img src="./img/nodeWTF.png">
+			<br>
+		</div>
+
+
+
+
+
+	</section>
+	<section>
+		<h2>datos de contacto</h2>
+		<div>
+			<img src="./img/crisboot.png">
+			<br>
+		</div>
+		<div>
+			<a href="mailto:cortez.cristian@gmail.com">cortez.cristian@gmail.com</a>
+		</div>
+		<div>
+			<br>
+		</div>
+
+
+
+	</section>
+
+</section>
+</div>
+
+
+</div> <!--.reveal-->
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+				{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+</script>
+
+</body>
+</html>

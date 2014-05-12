@@ -1,0 +1,14 @@
+wget https://s3.amazonaws.com/media-p.slid.es/uploads/cristiancortez/images/108346/isaac.jpg
+wget https://s3.amazonaws.com/media-p.slid.es/uploads/cristiancortez/images/108354/coronation.png
+wget https://s3.amazonaws.com/media-p.slid.es/uploads/cristiancortez/images/108359/npm.png
+wget https://s3.amazonaws.com/media-p.slid.es/uploads/cristiancortez/images/108391/colores.png
+wget https://s3.amazonaws.com/media-p.slid.es/uploads/cristiancortez/images/125329/2013-10-21_093855.png
+wget https://s3.amazonaws.com/media-p.slid.es/uploads/cristiancortez/images/129192/zombiejs.png
+wget https://s3.amazonaws.com/media-p.slid.es/uploads/cristiancortez/images/129194/testplan.png
+wget https://s3.amazonaws.com/media-p.slid.es/uploads/cristiancortez/images/130046/nyan-reporter.png
+wget https://s3.amazonaws.com/media-p.slid.es/uploads/cristiancortez/images/88613/nodejs.png
+wget https://s3.amazonaws.com/media-p.slid.es/uploads/cristiancortez/images/88812/ryandahl.jpg
+wget https://s3.amazonaws.com/media-p.slid.es/uploads/cristiancortez/images/89274/v8.png
+wget https://s3.amazonaws.com/media-p.slid.es/uploads/cristiancortez/images/89294/js.png
+wget https://s3.amazonaws.com/media-p.slid.es/uploads/cristiancortez/images/89490/crisboot.png
+wget https://s3.amazonaws.com/media-p.slid.es/uploads/cristiancortez/images/89502/nodeWTF.png
