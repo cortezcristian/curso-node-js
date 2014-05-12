@@ -568,19 +568,19 @@
 		<div>Obteniendo la version actual</div>
 
 		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
-			$ npm --version
-			1.1.69
+$ npm --version
+1.1.69
 		</code></pre>
 		<br>
 		<div>Instalando módulos</div>
 
 		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
-			$ npm install colors
-			npm http GET https://registry.npmjs.org/colors
-			npm http 200 https://registry.npmjs.org/colors
-			npm http GET https://registry.npmjs.org/colors/-/colors-0.6.2.tgz
-			npm http 200 https://registry.npmjs.org/colors/-/colors-0.6.2.tgz
-			colors@0.6.2 node_modules/colors
+$ npm install colors
+npm http GET https://registry.npmjs.org/colors
+npm http 200 https://registry.npmjs.org/colors
+npm http GET https://registry.npmjs.org/colors/-/colors-0.6.2.tgz
+npm http 200 https://registry.npmjs.org/colors/-/colors-0.6.2.tgz
+colors@0.6.2 node_modules/colors
 		</code></pre>
 		<br>
 
@@ -800,7 +800,7 @@
 			</div>
 			<div style="text-align: left;">
 				<span style="font-size: 31.769304275512695px;">
-					Grunt es un Framework que nos ayuda a automatizar tareas comunes, tales como minificar javascript, preprocesar templates, unir archivos, y mucho mas...
+					Grunt es un Framework que nos ayuda a automatizar tareas comunes, tales como minificar javascript, preprocesar templates, unir archivos, correr comandos de SO y mucho mas...
 				</span>
 			</div>
 			<div>
@@ -814,6 +814,152 @@
 				</p>
 			</div>
 		</div>
+
+	</section>
+	<section>
+		<h2>Grunt</h2>
+		<div>
+			<br>
+		</div>
+		<div>Instalando el cliente</div>
+
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+$ npm install -g grunt-cli
+		</code></pre>
+		<br>
+		<div>Obteniendo la version actual</div>
+
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+$ grunt --version
+grunt-cli v0.1.13
+		</code></pre>
+		<br>
+
+
+
+	</section>
+	<section>
+		<h2>Grunt</h2>
+		<div>
+			<br>
+		</div>
+		<div>Estrucutura básica</div>
+
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+.
+├── Gruntfile.js - definicion de tareas
+└── package.json - dependencias node
+		</code></pre>
+		<br>
+		<div>Uso</div>
+
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+$ grunt &lt;task-name&gt;
+		</code></pre>
+		<br>
+
+
+
+	</section>
+	<section>
+		<h2>Automatizando con Grunt</h2>
+		<div>
+			<br>
+		</div>
+		<div>Problema: procesar archivos less</div>
+
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+$ lessc -x estilos.less estilos.css # comando manual
+		</code></pre>
+		<br>
+		<div>Paso 1: Creamos un package.json</div>
+
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+$ cat package.json
+{
+ "name": "pre-procesar-less",
+ "version": "0.0.1",
+ "devDependencies": {
+   "grunt": "~0.4.2",
+   "grunt-contrib-less": "*"
+ }
+}
+		</code></pre>
+		<br>
+
+
+
+	</section>
+	<section>
+		<h2>Automatizando con Grunt</h2>
+		<div>
+			<br>
+		</div>
+		<div>Paso 2: Creamos el Gruntfile.js</div>
+
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+$ cat Gruntfile.js
+module.exports = function(grunt) {
+ 
+grunt.initConfig({
+   pkg: grunt.file.readJSON('package.json'),
+   less: {
+     process: {
+       options: {compress:true},
+       files: {
+         'estilos.css': 'estilos.less',
+       }
+     }
+   }
+ }); // The end of grunt.initConfig
+ 
+ grunt.loadNpmTasks('grunt-contrib-less'); // Grunt Package
+};
+		</code></pre>
+		
+	</section>
+	<section>
+		<h2>Automatizando con Grunt</h2>
+		<div>
+			<br>
+		</div>
+		<div>¿Cómo usarlo?</div>
+
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+$ npm install # primero instalar las dependencias
+		</code></pre>
+		<br>
+		<div>Corremos la tarea:</div>
+
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+$ grunt less:process
+Running "less:process" (less) task
+File estilos.css created: 40 B → 29 B
+
+Done, without errors.
+		</code></pre>
+
+
+
+	</section>
+	<section>
+		<h2>Automatizando con Grunt</h2>
+		<div>
+			<br>
+		</div>
+		<div>Hasta este punto solo hemos reemplazado esto:</div>
+
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+$ lessc -x estilos.less estilos.css # comando manual
+		</code></pre>
+		<br>
+		<div>por esto:</div>
+
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+$ grunt less:process # grunt task
+		</code></pre>
+
+
 
 	</section>
 </section>
