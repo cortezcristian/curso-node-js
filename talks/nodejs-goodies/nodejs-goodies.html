@@ -819,6 +819,26 @@ $ npm install
 		</div>
 
 	</section>
+	<!--
+	<section>
+		<h2>Caso Real</h2>
+
+		<div class="absolute-element" style="position: absolute; width: 840.8670576735093px; height: 343px; z-index: 4; left: 77px; top: 105px; max-height: none; max-width: none;">
+			<p style="text-align: center;">
+				<img src="./img/real-case.png" style="height: 275px;">
+				<br>
+			</p>
+			<div style="text-align: left;">
+				<span style="font-size: 31.769304275512695px;">
+					Este muchacho es como vos y siempre antes de salir a producción tiene que acordarse de minificar los css y preprocesar los archivos less.
+				</span>
+			</div>
+		</div>
+
+
+
+	</section>
+	-->
 	<section>
 		<h2>Grunt</h2>
 		<div>
@@ -1227,8 +1247,8 @@ at Sun May 11 2014 22:54:10 GMT-0300 (ART) - Waiting...
 		<div>
 			<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
 $ npm install -g mocha
-$ cd test
-$ cat test/test.js
+$ mkdir test
+$ $EDITOR test/test.js
 var assert = require("assert")
 describe('Array', function(){
   describe('#indexOf()', function(){
@@ -1247,116 +1267,11 @@ $  mocha
 
 
 </section>
-<section>
-	<h2>Fixtures</h2>
-
-	<div class="absolute-element" style="position: absolute; width: 840.8670576735093px; height: 343px; z-index: 4; left: 77px; top: 155px; max-height: none; max-width: none;">
-		<p style="text-align: center;">
-			<br>
-		</p>
-		<div style="text-align: left;">
-			<span>
-			</span>
-		</div>
-		<div style="text-align: left;">
-			<span style="font-size: 31.496061325073242px;">
-				Los fixtures son colecciones de datos fijos que se guardan&nbsp;</span>
-				<span style="font-size: 31.769304275512695px;">generalmente</span>
-				<span style="font-size: 31.496061325073242px;">&nbsp;dentro de arrays en el lenguaje utilizado, y se sincronizan contra la base de datos.
-					Son especialmente útiles durante la ejecución de los casos de prueba, que requieran registros pre-existentes para poder realizar operaciones sobre los mismos.
-				</span>
-				<br>
-			</div>
-			<div style="text-align: left;">
-				<span style="font-size: 31.769304275512695px;">
-					<br>
-				</span>
-			</div>
-			<div style="text-align: left;">
-				<br>
-			</div>
-			<div style="text-align: left;">
-				<span style="font-size: 31.769304275512695px;">
-					<br>
-				</span>
-			</div>
-			<div>
-				<p>
-					<a href="https://github.com/powmedia/mongoose-fixtures">
-						Mongoose Fixtures
-
-					</a>
-				</p>
-			</div>
-		</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	</section>
-	<section>
-		<h2>Fixtures</h2>
-		<div>
-			<br>
-		</div>
-		<div>Ejemplo con mongoose fixtures</div>
-		<div>
-			<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
-				var fixtures = require('mongoose-fixtures');
-
-				//Objects
-				fixtures.load({
-				User: [
-				{ name: 'Maeby' },
-				{ name: 'George Michael' }
-				]
-			});
-
-			//Files
-			fixtures.load(__dirname + '/fixtures/users.js');
-
-			//Directories (loads all files in the directory)
-			fixtures.load(__dirname + '/fixtures');
-		</code></pre>
-
-		<div>
-			<font style="font-size: 18px;">Importante: Al llamar al metodo load() primero se vacia la colleccion, y luego se cargan los fixtures</font>
-		</div>
-	</div>
 
 </section>
+
+<section>
+
 <section>
 	<h2>Zombie.JS</h2>
 
@@ -1396,19 +1311,20 @@ $  mocha
 	<div>Ejemplo de headless testing automation con zombie.js</div>
 	<div>
 		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
-			var Browser = require("zombie"), assert = require("assert");
-			browser = new Browser();
-			browser.visit("http://localhost:3000/", function () {
-			// Fill email, password and submit form
-			browser.
-			fill("email", "zombie@underworld.dead").
-			fill("password", "eat-the-living").
-			pressButton("Sign Me Up!", function() {
-			// Form submitted, new page loaded.
-			assert.ok(browser.success);
-			assert.equal(browser.text("title"),"Welcome To Brains Depot");
-		})
-	});
+var Browser = require("zombie"), assert = require("assert");
+browser = new Browser();
+
+browser.visit("http://localhost:3000/", function () {
+  // Fill email, password and submit form
+  browser.
+    fill("email", "zombie@underworld.dead").
+    fill("password", "eat-the-living").
+    pressButton("Sign Me Up!", function() {
+      // Form submitted, new page loaded.
+      assert.ok(browser.success);
+      assert.equal(browser.text("title"),"Welcome To Brains Depot");
+    })
+});
 </code></pre>
 
 </div>
