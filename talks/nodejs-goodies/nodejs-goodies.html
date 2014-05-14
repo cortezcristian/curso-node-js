@@ -1268,6 +1268,30 @@ $  mocha
 
 </section>
 
+<section>
+	<h2>Mocha</h2>
+
+	<div class="absolute-element" style="position: absolute; width:840px; height: 343px; z-index: 4; left: 77px; top: 125px; max-height: none; max-width: none;">
+		<p style="text-align: center;">
+			<img src="./img/nyan-reporter.png" style="width: 422.5591401009732px; height: 330.8845970833586px; max-height: none; max-width: none;">&nbsp;<br>
+		</p>
+		<div style="text-align: left;">
+			<span>
+			</span>
+		</div>
+
+		<div>
+			<p>
+			</p>
+			<p>
+				Ejecutamos nuestra suite de testing
+			</p>
+		</div>
+	</div>
+
+</section>
+
+
 </section>
 
 <section>
@@ -1558,32 +1582,125 @@ browser.visit("http://localhost:3000/", function () {
 
 	</div>
 </section>
+</section>
+<!-- TDD Ends -->
+<!-- Phantom.js Starts -->
 <section>
-	<h2>Testing Suite</h2>
+	<section>
+	<h2>Phantom.js</h2>
 
-	<div class="absolute-element" style="position: absolute; width:840px; height: 343px; z-index: 4; left: 77px; top: 125px; max-height: none; max-width: none;">
+	<div class="absolute-element" style="position: absolute; width: 840.8670576735093px; height: 343px; z-index: 4; left: 77px; top: 155px; max-height: none; max-width: none;">
 		<p style="text-align: center;">
-			<img src="./img/nyan-reporter.png" style="width: 422.5591401009732px; height: 330.8845970833586px; max-height: none; max-width: none;">&nbsp;<br>
+			<img src="./img/phantomjs-logo.png" />&nbsp;<br>
 		</p>
 		<div style="text-align: left;">
 			<span>
 			</span>
 		</div>
-
+		<div style="text-align: left;">
+			<span style="font-size: 31.769304275512695px;">
+				Es un headless Webkit que nos permite automatizar el testing, monitorear performance y hacer capturas de nuestras aplicaciones web.
+			</span>
+		</div>
 		<div>
 			<p>
+				<br>
 			</p>
 			<p>
-				Ejecutamos nuestra suite de testing
+				<a href="http://phantomjs.org/">
+				PhantomJS
+				</a>
 			</p>
 		</div>
 	</div>
 
-</section>
+    </section>
+	<section>
+	    <h2>Phantom.js</h2>
+		<div>
+			<br>
+		</div>
+		<div>Capturar Websites</div>
 
-</section>
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+$ cat capture.js
+var page = require('webpage').create();
 
-<!-- TDD Ends -->
+page.open('http://github.com/', function() {
+  page.render('github.png');
+  phantom.exit();
+});
+		</code></pre>
+		<br>
+
+		<div>Ejemplo de uso</div>
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+$ phantomjs capture.js
+		</code></pre>
+		<br>
+
+
+
+	</section>
+</section>
+<!-- Phantom.js Ends -->
+
+<!-- docco Starts -->
+<section>
+	<section>
+	<h2>Docco</h2>
+
+	<div class="absolute-element" style="position: absolute; width: 840.8670576735093px; height: 343px; z-index: 4; left: 77px; top: 155px; max-height: none; max-width: none;">
+		<p style="text-align: center;">
+			<img src="./img/docco.png" />&nbsp;<br>
+		</p>
+		<div style="text-align: left;">
+			<span>
+			</span>
+		</div>
+		<div style="text-align: left;">
+			<span style="font-size: 31.769304275512695px;">
+				Es un framework que nos permite generar documentación en base a Markdown que dejamos en los comentarios.
+			</span>
+		</div>
+		<div>
+			<p>
+				<br>
+			</p>
+			<p>
+				<a href="http://jashkenas.github.io/docco/">
+					Docco documentation generator
+
+				</a>
+			</p>
+		</div>
+	</div>
+
+    </section>
+	<section>
+	    <h2>Docco</h2>
+		<div>
+			<br>
+		</div>
+		<div>Instalando docco</div>
+
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+$ npm install -g docco
+		</code></pre>
+		<br>
+		<div>Ejemplo de uso</div>
+
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+$ docco ./models/*.js -o docs/
+		</code></pre>
+		<br>
+
+
+
+	</section>
+</section>
+<!-- docco Ends -->
+
 <section>
 	<section>
 		<h2>preguntas?</h2>
