@@ -898,8 +898,9 @@ $ bower install jquery#1.9.1
 		<ul>
 
 			<li>Grunt / Gulp</li>
+			<li>Express</li>
 			<li>Mocha</li>
-			<li>Test: Zombie.js / Phantom.js / Selenium</li>
+			<li>Zombie.js / Phantom.js / Selenium</li>
 			<li>Docco</li>
 
 		</ul>
@@ -1164,6 +1165,226 @@ at Sun May 11 2014 22:54:10 GMT-0300 (ART) - Waiting...
 
 	</section>
 </section>
+<!-- Express start -->
+<section>
+    <section>
+        <h2>EXPRESS</h2>
+
+<div class="absolute-element" style="position: absolute; width: 840.8670576735093px; height: 343px; z-index: 4; left: 77px; top: 155px; max-height: none; max-width: none;">
+<p style="text-align: center;">
+    <img src="./img/express.png">
+</p>
+<div style="text-align: left;">
+    <span>
+    </span>
+</div>
+<div style="text-align: left;">
+    <span style="font-size: 31.769304275512695px;">Express es un Framework MVC para Node.JS inspirado en Sinatra.</span></div>
+    <div>
+<p>
+<br>
+</p>
+<p>
+<br>
+</p>
+<p>
+<a href="http://expressjs.com/guide.html">
+Express Guide
+
+</a>
+</p>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+                    <section>
+<h2>Express</h2>
+<div>Inicializar un proyecto con express
+</div>
+<div>
+<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+$ express --sessions --css stylus sitioweb
+$ cd sitioweb &amp;&amp; npm install
+$ node app
+</code></pre>
+<p>
+<br>
+</p>
+<p>En este caso elegimos Stylus como pre-procesador de css y Jade como motor de templating, para ver mas opciones:</p>
+<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+$ express -h
+</code></pre>
+</div>
+</section>
+                    <section>
+<h2>Express</h2>
+<div>Router
+</div>
+<div>
+<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+app.get('/', function(req, res){
+    res.render('index', { title: 'Express'}); 
+    // Llama a la vista views/index.jade
+    // Le pasa un objeto a la vista
+});
+</code></pre>
+</div>
+<div>View
+</div>
+<div>
+<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+</code></pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+                    <section>
+<h2>Express</h2>
+<div>Ruoter
+</div>
+<div>
+    <br>
+</div>
+<p>Se pueden encadenar conjuntos de operaciones:</p>
+<div>
+<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+app.get('/', operacion1, operacion2, operacion3, function(req, res){
+    /**
+    * En este caso se ejecutaron 3 operaciones 
+    * antes de mostrar la vista
+    */
+    res.render('index', { title: 'Express'}); 
+});
+</code></pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+                    <section>
+<h2>Express</h2>
+
+<p>Supongamos que es necesario tener una cookie activa para poder acceder al sitio:</p>
+<div>
+<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+var cookieAuthorizer = function(req, res, next) {
+    if(typeof req.cookies.authorizeme == "undefined"){
+        res.redirect('/site-not-available');         
+    } else {
+        next();
+    }
+}
+
+app.get('/', cookieAuthorizer, function(req, res){
+    /**
+    * Esta vista solo se muestra si el usuario tiene la cookie
+    */
+    res.render('index', { title: 'Express'}); 
+});
+</code></pre>
+</div>
+
+
+
+
+
+
+
+
+</section>
+                    <section>
+<h2>Express</h2>
+
+<p>Podemos tener differentes métodos para las mismas URLs:</p>
+<div>
+<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+app.get('/pedidos/:id', middleware, function(){
+  // ... Leer registro
+});
+
+app.post('/pedidos/:id', middleware, function(){
+  // ... Modificar registro
+});
+
+app.put('/pedidos/:id', middleware, function(){
+  // ... Insertar registro
+});
+
+app.delete('/pedidos/:id', middleware, function(){
+  // ... Borrar registro
+});
+</code></pre>
+</div>
+
+</section>
+<!-- eof section -->
+                </section>
+
+<!-- Express ends -->
+
 <section>
 	<!--
 	<section>
@@ -1345,9 +1566,9 @@ at Sun May 11 2014 22:54:10 GMT-0300 (ART) - Waiting...
 		<div>
 			<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
 $ npm install -g mocha
-$ mkdir test
 $ $EDITOR test/test.js
-var assert = require("assert")
+var assert = require("assert");
+
 describe('Array', function(){
   describe('#indexOf()', function(){
     it('should return -1 when the value is not present', function(){
@@ -1356,9 +1577,11 @@ describe('Array', function(){
     })
   })
 })
-$  mocha
-  .
-  ✔ 1 test complete (1ms)
+$ mocha --reporter spec
+  Array
+    #indexOf()
+      ✓ should return -1 when the value is not present 
+  1 passing (6ms)
 </code></pre>
 
 </div>
@@ -1484,23 +1707,19 @@ browser.visit("http://localhost:3000/", function () {
 	<div>Instalando las dependencias para desarrollo</div>
 	<div>
 		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
-			$ git clone git@github.com:cortezcristian/curso-node-js.git
-			$ cd curso-node-js
-			$ git checkout 1ab3b6c0804251f76fceee0d3efdbc15b63b0415
-			$ cd clase-5/express-mongoose-testing/
-			$ npm install --save-dev
+$ npm install --save-dev
 		</code></pre>
 	</div>
 	<div>
-		<font style="font-size: 18px;">Este último comando instala las dependencias listadas dentro de "devDependencies" en el package JSON</font>
+		<font style="font-size: 18px;">Este último comando instala las dependencias listadas dentro de "devDependencies" en el package.json</font>
 	</div>
 	<div>
 		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
-			"devDependencies": {
-			"mocha": "~1.13.0",
-			"zombie": "~2.0.0-alpha24",
-			"mongoose-fixtures": "0.0.1"
-		}
+"devDependencies": {
+    "mocha": "~1.13.0",
+    "zombie": "~2.0.0-alpha24",
+    "mongoose-fixtures": "0.0.1"
+}
 	</code></pre>
 </div>
 
@@ -1533,18 +1752,18 @@ browser.visit("http://localhost:3000/", function () {
 	<div>Testeamos el modelo personas.js</div>
 	<div>
 		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
-			describe('Model Test Personas', function(){
-			before(function(){
-			//Before all tests
-			Personas = require("../../../models/personas.js");
-		});
+describe('Model Test Personas', function(){
+    before(function(){
+        //Before all tests
+        Personas = require("../../../models/personas.js");
+    });
 
-		describe('Operaciones con Alumnos', function(){
-		it('Crear un nuevo alumno en la BD', function(done){
-		var p = new Personas({nombre: "Jorge", cargo: "Alumno"});
-		p.save(done);
-	});
-});
+    describe('Operaciones con Alumnos', function(){
+        it('Crear un nuevo alumno ', function(done){
+          var p = new Personas({nombre: "Jorge", cargo: "Alumno"});
+          p.save(done);
+        });
+    });
 });
 </code></pre>
 
@@ -1580,24 +1799,24 @@ browser.visit("http://localhost:3000/", function () {
 </section>
 <section>
 	<h2>Testeando el Modelo</h2>
-	<div>Testeamos el método Personas.buscarPorNombre() </div>
+	<div>Testeamos el método buscarPorNombre() </div>
 	<div>
 		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
-			describe('Model Test Personas', function(){
-			// ...
-			describe('Operaciones con Alumnos', function(){
-			it('Buscar Alumno por Nombre', function(done){
-			fixtures.load('../../fixtures/alumnos.js',function(err){
-			Personas.buscarPorNombre("Juan Pablo", function(pers){
-			if(pers[0].nombre == "Juan Pablo"){
-			done()    
-		}else{
-		done((new Error('El alumno no fue encontrado')));
-	}
-});
-});
-});
-});
+describe('Model Test Personas', function(){
+    // ...
+    describe('Operaciones con Alumnos', function(){
+        it('Buscar Alumno por Nombre', function(done){
+          fixtures.load('../../fixtures/alumnos.js',function(err){
+              Personas.buscarPorNombre("Juan Pablo", function(pers){
+                if(pers[0].nombre == "Juan Pablo"){
+                  done()    
+                }else{
+                  done((new Error('El alumno no fue encontrado')));
+                }
+              });
+          });
+        });
+    });
 });
 </code></pre>
 
@@ -1614,16 +1833,16 @@ browser.visit("http://localhost:3000/", function () {
 	<div>Corremos los tests </div>
 	<div>
 		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
-			$ mocha ./test/unit/db/* --reporter spec
-			Model Test Personas
-			Operaciones con Alumnos
-			✓ Crear un nuevo alumno en la BD 
-			✓ Obtener Datos de Alumno 
-			✓ Editar Datos de Alumno 
-			✓ Borrar Alumno 
-			✓ Buscar Alumno por Nombre 
+$ mocha ./test/unit/db/* --reporter spec
+  Model Test Personas
+    Operaciones con Alumnos
+      ✓ Crear un nuevo alumno  
+      ✓ Obtener Datos de Alumno 
+      ✓ Editar Datos de Alumno 
+      ✓ Borrar Alumno 
+      ✓ Buscar Alumno por Nombre 
 
-			5 tests complete (26 ms)
+  5 tests complete (26 ms)
 		</code></pre>
 
 
@@ -1639,22 +1858,22 @@ browser.visit("http://localhost:3000/", function () {
 	<div>Testeamos el formulario de alta de alumnos</div>
 	<div>
 		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
-			describe('Headless Testing', function(){
-			describe('ABM de Alumnos', function(){
-			it('Crear un nuevo alumno', function(done){
-			browser.visit(domain+"/new", function () {
-			browser.
-			fill("nombre", "Ariel").
-			pressButton("Guardar", function() {
-			if(browser.location.pathname == "/"){
-			done()
-		}else{
-		throw new Error('Fallo el alta de alumno');
-	}
-});
-});
-});
-});
+describe('Headless Testing', function(){
+    describe('ABM de Alumnos', function(){
+        it('Crear un nuevo alumno', function(done){
+            browser.visit(domain+"/new", function () {
+                 browser.
+                  fill("nombre", "Ariel").
+                  pressButton("Guardar", function() {
+                   if(browser.location.pathname == "/"){
+                     done()
+                    }else{
+                      throw new Error('Fallo el alta de alumno');
+                    }
+                  });
+            });
+        });
+    });
 });
 </code></pre>
 
@@ -1666,15 +1885,15 @@ browser.visit("http://localhost:3000/", function () {
 	<div>Corremos los tests</div>
 	<div>
 		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
-			$ mocha ./test/functional/headless/* --reporter spec
-			Headless Testing
-			ABM de Alumnos
-			✓ Crear un nuevo alumno (155ms)
-			✓ Listar Alumnos (65ms)
-			✓ Editar Datos de Alumno (198ms)
-			✓ Borrar Alumno (63ms)
+$ mocha ./test/functional/headless/* --reporter spec
+  Headless Testing
+    ABM de Alumnos
+      ✓ Crear un nuevo alumno (155ms)
+      ✓ Listar Alumnos (65ms)
+      ✓ Editar Datos de Alumno (198ms)
+      ✓ Borrar Alumno (63ms)
 
-			4 tests complete (485 ms)
+  4 tests complete (485 ms)
 		</code></pre>
 
 
