@@ -299,21 +299,21 @@ Server running at http://127.0.0.1:8080/
 					<div>Echo TCP Server</div>
 
 					<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
-						var net = require('net');
+var net = require('net');
 
-						var server = net.createServer(function (socket) {
-						socket.write('Echo server\r\n');
-						socket.pipe(socket);
-					});
+var server = net.createServer(function (socket) {
+  socket.write('Echo server\r\n');
+  socket.pipe(socket);
+});
 
-					server.listen(1337, '127.0.0.1');
+server.listen(1337, '127.0.0.1');
 				</code></pre>
 				<div>Probamos el echo server:</div>
 				<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
-					$ nc localhost 1337
-					Echo server
-					ecoooo
-					ecoooo
+$ nc localhost 1337
+Echo server
+ecoooo
+ecoooo
 				</code></pre>
 				<br>
 			</section>
@@ -321,26 +321,23 @@ Server running at http://127.0.0.1:8080/
 				<h2>NODE.JS</h2>
 				<div>Telenet Chat Server</div>
 				<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
-					var net = require('net');
-					var sockets = [];
+var net = require('net'), sockets = [];
 
-					var server = net.createServer(function (socket) {
-					sockets.push(socket);
-					socket.write('Bienvenido al Chat ;)\r\n');
+var server = net.createServer(function (socket) {
+      sockets.push(socket);
+      socket.write('Bienvenido al Chat ;)\r\n');
+      
+      socket.on("data", function(d){
+        sockets.forEach(function(v,i){
+            v.write(d);    
+        });    
+      });
 
-					socket.on("data", function(d){
-					sockets.forEach(function(v,i){
-					v.write(d);    
-				});    
-			});
-
-			socket.on("end", function(){
-			var index = sockets.indexof(socket);
-			delete sockets[index];
-		});
-	}); 
-
-	server.listen(1337, '127.0.0.1');
+      socket.on("end", function(){
+          var index = sockets.indexof(socket);
+          delete sockets[index];
+      });
+}); server.listen(1337, '127.0.0.1');
 </code></pre>
 <br>
 
@@ -1852,6 +1849,17 @@ $ mocha ./test/unit/db/* --reporter spec
 
 
 
+</section>
+<section>
+	<h2>Testeando la Aplicación</h2>
+	<div>Testeamos el formulario de alta de alumnos</div>
+	<div>
+    <p style="text-align: center;">
+        <img src="./img/zombie-form-new.png" />&nbsp;<br>
+    </p>
+
+
+</div>
 </section>
 <section>
 	<h2>Testeando la Aplicación</h2>
