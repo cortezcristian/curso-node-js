@@ -468,6 +468,68 @@ Server running at http://127.0.0.1:8080/
 	</section>
 
 </section>
+<!-- Historia -->
+<section>
+	<section>
+		<div class="absolute-element" style="position: absolute; width: 840.8670576735093px; height: 343px; z-index: 4; left: 77px; top: 65px; max-height: none; max-width: none;">
+        Una pequeña historia...
+		</div>
+	</section>
+	<section>
+
+		<div class="absolute-element" style="position: absolute; width: 840.8670576735093px; height: 343px; z-index: 4; left: 77px; top: 50px; max-height: none; max-width: none;">
+			<p style="text-align: center;">
+				<img src="./img/real-case.png" style="height: 275px;">
+				<br>
+			</p>
+			<div style="text-align: center;">
+				<span style="font-size: 31.769304275512695px;">
+                    Lo acaba de llamar el cliente, hace 30 minutos...
+				</span>
+			</div>
+		</div>
+
+
+
+	</section>
+	<section>
+		<div>Solo un cambio en el front-end...</div>
+
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+$ cd front-end
+$ ls
+app/             Gruntfile.js
+app.coffee       handlebars/
+app.min.js       index.jade
+bower.json       mocha.opts
+config.json      node_modules/
+docs/            package.json
+estilos.less     stylus/
+estilos.min.css  test/
+express/
+
+        </code></pre>
+        <div>¿Que tan dificil puede ser?</div>
+	</section>
+	<section>
+
+		<div class="absolute-element" style="position: absolute; width: 840.8670576735093px; height: 343px; z-index: 4; left: 77px; top: 50px; max-height: none; max-width: none;">
+			<p style="text-align: center;">
+				<img src="./img/meme-computer-guy-headache.jpg" style="height: 275px;">
+				<br>
+			</p>
+			<div style="text-align: center;">
+				<span style="font-size: 31.769304275512695px;">
+                    ...
+				</span>
+			</div>
+		</div>
+
+
+
+	</section>
+</section>
+<!-- Historia-->
 <!-- NPM Starts -->
 <section>
 	<h2>
@@ -875,26 +937,6 @@ $ bower install jquery#1.9.1
 		</div>
 
 	</section>
-	<!--
-	<section>
-		<h2>Caso Real</h2>
-
-		<div class="absolute-element" style="position: absolute; width: 840.8670576735093px; height: 343px; z-index: 4; left: 77px; top: 105px; max-height: none; max-width: none;">
-			<p style="text-align: center;">
-				<img src="./img/real-case.png" style="height: 275px;">
-				<br>
-			</p>
-			<div style="text-align: left;">
-				<span style="font-size: 31.769304275512695px;">
-					Este muchacho es como vos y siempre antes de salir a producción tiene que acordarse de minificar los css y preprocesar los archivos less.
-				</span>
-			</div>
-		</div>
-
-
-
-	</section>
-	-->
 	<section>
 		<h2>Grunt</h2>
 		<div>
@@ -1700,6 +1742,67 @@ $ phantomjs capture.js
 	</section>
 </section>
 <!-- Phantom.js Ends -->
+
+<!-- Yo Starts -->
+<section>
+	<section>
+	<h2>Yeoman</h2>
+
+	<div class="absolute-element" style="position: absolute; width: 840.8670576735093px; height: 343px; z-index: 4; left: 77px; top: 155px; max-height: none; max-width: none;">
+		<p style="text-align: center;">
+			<img src="./img/phantomjs-logo.png" />&nbsp;<br>
+		</p>
+		<div style="text-align: left;">
+			<span>
+			</span>
+		</div>
+		<div style="text-align: left;">
+			<span style="font-size: 31.769304275512695px;">
+				Es un headless Webkit que nos permite automatizar el testing, monitorear performance y hacer capturas de nuestras aplicaciones web.
+			</span>
+		</div>
+		<div>
+			<p>
+				<br>
+			</p>
+			<p>
+				<a href="http://phantomjs.org/">
+				PhantomJS
+				</a>
+			</p>
+		</div>
+	</div>
+
+    </section>
+	<section>
+	    <h2>Phantom.js</h2>
+		<div>
+			<br>
+		</div>
+		<div>Capturar Websites</div>
+
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+$ cat capture.js
+var page = require('webpage').create();
+
+page.open('http://github.com/', function() {
+  page.render('github.png');
+  phantom.exit();
+});
+		</code></pre>
+		<br>
+
+		<div>Ejemplo de uso</div>
+		<pre><code data-trim="" contenteditable="" style="font-size: 20px; margin-top: 20px;">
+$ phantomjs capture.js
+		</code></pre>
+		<br>
+
+
+
+	</section>
+</section>
+<!-- Yo Ends -->
 
 <!-- docco Starts -->
 <section>
